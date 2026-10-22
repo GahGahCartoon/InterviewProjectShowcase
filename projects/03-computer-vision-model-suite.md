@@ -1,25 +1,46 @@
 # Computer Vision Model Suite for Scanned Documents
 
+**Status:** Models built and evaluated, with Docker-based model hosting; deployment status is not specified for every model
+
 ## Overview
 
-The supplied project title identifies a collection of computer vision models applied to scanned documents. Work in this area can support tasks such as document-image classification, region detection, or image-quality analysis before later extraction stages. These examples explain the technical domain only; they are not assertions about the models or tasks implemented in this project.
+I built and evaluated computer vision models for three scanned-document tasks: signature detection, checkbox detection/classification, and signature similarity comparison. The work included scanned-image preprocessing, task-specific model development and evaluation, and Docker-based model hosting.
 
-## Status and contribution
+These were distinct technical problems. Detection locates an object or region, classification assigns a task-specific category, and similarity comparison estimates how closely two signature representations resemble one another. They should not be described or evaluated as if they were interchangeable.
 
-**Status:** Unconfirmed.
+## My contribution
 
-The repository does not contain a resume, model documentation, evaluation report, or source code that establishes Tan Carlton's personal contribution. Accordingly, this page does not attribute model design, training, evaluation, deployment, or operational ownership to any individual.
+I worked with Python and PyTorch to build and evaluate models for the three tasks. I prepared scanned images for inference through preprocessing and worked on Docker-based hosting so model capabilities could be run as services or integrated into a broader document-processing workflow.
 
-## Workflow and technology
+My contribution covered model work and hosting, but the available resume brief does not establish that every model reached production. I therefore do not generalise one model's deployment status, evaluation conditions, or result to the entire suite.
 
-A general model-development workflow may include authorised data preparation, training, controlled evaluation, error analysis, and integration into a larger document-processing pipeline. This is **not a verified project workflow**. The model families, training framework, annotation approach, dataset composition, serving environment, and integration design are unknown and are not inferred.
+## High-level workflow
 
-## Engineering decisions, outcomes, and limitations
+Scanned image → preprocessing → task-specific model inference → task-specific output → evaluation or integration into a document-processing workflow
 
-No accuracy figure is published because the evaluated tasks, class balance, dataset split, test conditions, and metric definitions are unavailable. In particular, a selected-task result must not be presented as performance for every model or as whole-document accuracy. There is also no evidence from which to discuss trade-offs such as model size versus speed, generalisation versus task specificity, or automated handling versus human review.
+The exact output and integration path depended on the task. No universal output schema or identical downstream integration is claimed for every model.
 
-Remaining evidence gaps include the actual task boundaries, status of each model, contribution boundaries, evaluation methodology, and known failure modes.
+## Technology
 
-## Reviewer evidence
+- Python
+- PyTorch
+- Scanned-image preprocessing
+- Docker-based model hosting
 
-This repository contains a sanitised narrative rather than model code, weights, training data, internal evaluation samples, or a runnable demonstration. All implementation and outcome claims remain pending authorised verification.
+Specific architectures, training losses, dataset sizes, thresholds, and serving frameworks are intentionally not assigned to the models because those details are not provided in the public brief.
+
+## Engineering considerations
+
+Each task required evaluation against its own objective. A detector's localisation behaviour, a checkbox classifier's category decisions, and a signature-comparison model's similarity output answer different questions. A single aggregate figure cannot establish identical performance across them.
+
+Signature similarity comparison also has an important scope boundary: it is not, by itself, verified identity authentication, fraud detection, or forensic signature verification. Those claims would require different evidence, controls, and evaluation protocols.
+
+## Outcomes and limitations
+
+The resume reports over 95% accuracy on selected tasks under controlled scanned-document conditions. This is a selected-task result, not a claim that every model achieved the same performance or that the result generalises to arbitrary images.
+
+The public brief does not provide per-task metric definitions, test-set sizes, class balance, threshold settings, or precision/recall-style measures. It also does not identify which individual models were deployed to production. Those limitations prevent a more granular comparison without inventing evidence.
+
+## Evidence
+
+This case study contains no customer images, proprietary training data, model weights, or internal evaluation samples. It is a sanitised account of the tasks, contribution, technology, and resume-reported outcome.

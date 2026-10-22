@@ -1,25 +1,47 @@
 # Template-Based Document Extraction Platform
 
+**Status:** Full-stack MVP
+
 ## Overview
 
-The supplied project title identifies a platform for extracting information from documents using templates. Systems in this category generally address repeatable document layouts and map selected regions or values into structured data for validation and downstream use. This is a description of the problem category, not a claim about a specific employer workflow; no resume or implementation evidence was present in the repository.
+I built a full-stack MVP that let users configure document templates, manage extraction workflows, and review extracted values through a user interface. The project addressed an important gap between an extraction model and a usable workflow: people needed a way to configure what should be processed and inspect the resulting values in the context of the source document.
 
-## Status and contribution
+The MVP was not presented as a production platform, and no claim is made about customer adoption or production traffic.
 
-**Status:** Unconfirmed.
+## My contribution
 
-The available materials do not establish Tan Carlton's personal responsibilities. This page therefore makes no claim of sole ownership, architectural leadership, production operation, or responsibility for any particular component.
+I developed the frontend using React, Vite, and JavaScript. I implemented UI flows for template configuration, extraction workflow scheduling and management, extracted-value review, result inspection, and document-position verification.
 
-## Workflow and technology
+I integrated the frontend with backend cloud services and fine-tuned AI extraction models. This connected configuration and workflow controls with the extraction process and brought model results back into an interface where users could inspect both the values and their positions in a document. I do not claim sole ownership of any wider company platform or backend capability beyond the contributions described here.
 
-A representative template-oriented workflow could identify an applicable template, locate selected content, extract candidate values, apply validation rules, and pass accepted results to downstream systems. This conceptual sequence is included for reader orientation only and **has not been verified as the project's implemented workflow**. No programming languages, frameworks, OCR services, databases, interfaces, or deployment environments can be safely named.
+## High-level workflow
 
-## Engineering decisions, outcomes, and limitations
+User configures a document template → user manages or schedules an extraction workflow → backend services perform extraction → interface presents extracted values → user inspects values and their document positions
 
-Template-based approaches often trade flexibility for predictable behaviour on known layouts, but the project's actual decision criteria and mitigations are not documented here. It would be inappropriate to claim accuracy, processing scale, speed, savings, or production readiness without the missing source evidence.
+This description intentionally leaves out proprietary template definitions, internal business rules, and implementation details that are not supported for public disclosure.
 
-Evidence is needed to describe how template changes, low-quality scans, validation exceptions, or unseen layouts were handled, if those concerns were in scope.
+## Technology
 
-## Reviewer evidence
+- React
+- Vite
+- JavaScript
+- Backend cloud-service integration
+- Fine-tuned AI extraction-model integration
 
-The repository provides this high-level, sanitised summary only. It contains neither a runnable public implementation nor employer-owned artifacts. Project status, implemented stack, contribution boundaries, measured outcomes, and remaining work all require confirmation against authorised resume or project materials.
+The available brief does not establish a specific scheduler, database, cloud provider, queue, coordinate format, or backend framework, so none is attributed to the MVP.
+
+## Engineering considerations
+
+Making extraction configurable through an interface turned a model capability into a workflow that users could operate. Template configuration and workflow management provided control over what was processed and when, while result inspection made model output visible in its document context.
+
+Document-position verification was especially relevant to the end-to-end experience: an extracted value on its own is less useful for review than a value that can be inspected against its source position. This does not imply a measured reduction in errors, but it explains why the review interface was part of the AI workflow rather than a separate presentation layer.
+
+## Outcomes and limitations
+
+I delivered an MVP combining template configuration, extraction workflow management, and visual result review. No quantified adoption, time saving, or accuracy improvement is available.
+
+The brief does not establish production-scale validation or a completed production-readiness assessment. It also does not provide enough evidence to state which additional reliability, security, or testing work remained; those questions require further project detail rather than speculation.
+
+## Evidence
+
+This sanitised account describes the MVP and my contributions without publishing employer-owned code, real documents, proprietary template definitions, or internal business logic.

@@ -1,25 +1,37 @@
 # RAG Website Chatbot
 
+**Status:** Built; production deployment status is not specified
+
 ## Overview
 
-The supplied project title identifies a website chatbot using retrieval-augmented generation (RAG). Applications in this category retrieve relevant material from an approved knowledge source and provide that context to a language model when generating an answer. This general explanation is included to define RAG and is not evidence of this project's specific architecture or behaviour.
+I built a retrieval-augmented generation (RAG) website chatbot designed to answer questions using retrieved information rather than relying only on a language model's general knowledge. The project combined a retrieval pipeline with contextual prompt construction and LLM response generation in a website chatbot experience.
 
-## Status and contribution
+## My contribution
 
-**Status:** Unconfirmed.
+I implemented document ingestion, retrieval for user questions, contextual prompt construction, and LLM response generation. I also implemented context-grounded response generation intended to improve relevance and reduce unsupported responses.
 
-Tan Carlton's personal contribution cannot be established from the repository. This page does not claim ownership of the chatbot, its retrieval pipeline, user interface, deployment, knowledge content, or evaluation.
+This was an implemented engineering approach, not a claim that retrieval eliminates hallucinations. No measured hallucination-reduction percentage or formal answer-quality score is available, and the resume does not specify production traffic or a production service-level objective.
 
-## Workflow and technology
+## High-level workflow
 
-A typical high-level RAG flow includes preparing an approved content collection, retrieving passages relevant to a user's question, generating a contextual answer, and presenting appropriate source references or fallback behaviour. That flow is **illustrative rather than a verified description of this project**. The website stack, language model, embedding model, index, ranking method, hosting environment, and monitoring approach are not documented and are therefore omitted.
+Document ingestion → retrieval for a user question → contextual prompt construction → LLM response generation → website chatbot response
 
-## Engineering decisions, outcomes, and limitations
+At query time, retrieved information supplied context for generation. This kept the response process connected to the ingested material, while still leaving the generated answer subject to the quality of retrieval and the behaviour of the language model.
 
-The available evidence does not support claims about answer quality, hallucination reduction, latency, cost, usage, security, or production readiness. Nor does it establish decisions concerning chunking, retrieval, citations, prompt design, access boundaries, content freshness, or escalation when an answer is unsupported.
+## Technology
 
-A stronger case study would require authorised confirmation of the business problem, contribution boundaries, implemented workflow, evaluation method, known limitations, and operational status.
+The supported technical description is deliberately capability-focused: document ingestion, information retrieval, contextual prompt construction, LLM integration, and a website chatbot interface. The available brief does not identify a particular frontend or backend framework, vector database, embedding model, chunking method, or reranking implementation, so none is claimed here.
 
-## Reviewer evidence
+## Engineering considerations
 
-Only this sanitised documentation page is publicly available. There is no runnable chatbot, proprietary prompt, content corpus, internal evaluation set, configuration, or employer-owned implementation in this repository. Reviewers should regard technical and outcome details as unconfirmed.
+RAG separates two quality problems that need to be considered together. Retrieval must surface useful context for the question, and generation must use that context appropriately. A fluent response can still be wrong when retrieval is weak, the source material is incomplete, or the model draws unsupported conclusions.
+
+Grounding was therefore an architectural approach intended to improve relevance and reduce unsupported answers, not a guarantee of factual correctness. The public evidence does not establish user-visible citations, access-control enforcement, prompt-injection protection, or an implemented fallback or escalation path, so this case study does not imply those features.
+
+## Outcomes and limitations
+
+I delivered a website chatbot combining retrieval and LLM generation. Production deployment status, deployment scale, and formal evaluation methodology are not specified in the resume brief. No quantitative claim is made about answer quality, latency, cost, usage, or hallucination reduction, and completed production hardening is not claimed.
+
+## Evidence
+
+This sanitised description excludes private source documents, proprietary prompts, credentials, and employer-owned implementation. It records my stated contribution and the implemented high-level workflow without treating unavailable public code as evidence that the work is unknown.

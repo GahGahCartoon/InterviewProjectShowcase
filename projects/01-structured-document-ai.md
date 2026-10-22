@@ -1,25 +1,45 @@
 # High-Volume Structured Document AI Extraction System
 
+**Status:** Production enterprise system
+
 ## Overview
 
-The supplied project title identifies a system concerned with extracting structured information from documents at high volume. In this problem area, scanned business documents may vary in layout and image quality while downstream systems require consistent, validated data. This description establishes only the general engineering context; the repository contains no supporting resume, design record, or implementation from which to verify the system's precise scope.
+I built and maintained AI capabilities for a production system that converts scanned business documents into structured results for downstream systems. The workflow had to accommodate variable image quality, selected handwritten and printed content, and high processing volume without treating raw model output as a finished business result.
 
-## Status and contribution
+## My contribution
 
-**Status:** Unconfirmed.
+My work covered the document AI lifecycle rather than a single model call. I prepared training data, fine-tuned models, and evaluated extraction performance at field level. I also developed backend services for inference orchestration and implemented structured result processing, validation, error handling, and downstream integration.
 
-Tan Carlton's personal contribution cannot be stated responsibly from the available evidence. In particular, this page does not claim ownership of the system, a production deployment, a particular subsystem, or any operational result.
+On the operational side, I tested concurrent request processing, latency, throughput, and GPU utilisation to evaluate service performance and locate bottlenecks. I implemented application and infrastructure monitoring for service health, inference behaviour, GPU, CPU, and memory. These contributions were part of a wider company system; I do not claim sole ownership of the complete platform.
 
-## Workflow and technology
+## High-level workflow
 
-A document-extraction workflow commonly includes ingestion, image or text preprocessing, extraction of selected fields, validation, and delivery to downstream systems. That sequence is provided only to explain the problem domain and is **not a verified description of this project's architecture**. The language, frameworks, models, storage, infrastructure, and deployment approach are unconfirmed and intentionally omitted.
+Scanned document image → image preprocessing → model inference → structured result processing → validation and error handling → downstream integration
 
-## Engineering decisions, outcomes, and limitations
+Monitoring covered both service behaviour and infrastructure resources. This is a deliberately high-level view: individual requests could follow different internal paths, and proprietary prompts, rules, schemas, and topology are omitted.
 
-No evidence is available to substantiate design trade-offs, throughput, accuracy, latency, cost, reliability, or operational controls. The title's phrase “high-volume” is retained as the supplied project name, but no numerical volume is claimed. No field-level or whole-document accuracy metric is published.
+## Technology
 
-Before this page can make a stronger engineering case, authorised evidence is needed for the implemented workflow, individual responsibilities, production status, measurement methodology, and limitations.
+- Python and FastAPI for backend inference services
+- Vision-language models for document extraction
+- vLLM for GPU model serving
+- PyTorch for model-development work
+- Docker and Linux for service hosting
+- Prometheus and Grafana for monitoring
+- NVIDIA GPU infrastructure
 
-## Reviewer evidence
+## Engineering considerations
 
-The public evidence currently available is this sanitised narrative and the supplied project title. There is no runnable implementation or confidential work artifact in this repository. Reviewers should treat all implementation and contribution details as pending verification.
+This work involved more than generating a model response. A response had to be processed, validated, and handled safely before downstream use. Model quality and service quality also required separate evaluation: field-level accuracy did not describe latency, throughput, concurrency behaviour, or GPU efficiency.
+
+Performance tests therefore considered concurrency, latency, throughput, and GPU utilisation together rather than optimising one number in isolation. Infrastructure monitoring answered whether compute resources and hosts were healthy, while application monitoring exposed service health and inference behaviour. Both views were necessary to investigate bottlenecks and operate the workflow.
+
+## Outcomes and limitations
+
+The system supported approximately 50,000 documents per day in an enterprise environment. Resume-reported field-level results were approximately 92–95% accuracy on selected handwritten fields and approximately 98–99% on selected printed-text fields under scanned-document conditions.
+
+These are aggregate resume figures for selected fields and evaluated conditions—not whole-document accuracy, a public benchmark, or guaranteed performance on arbitrary documents. The public brief does not include evaluation sample sizes or the complete scoring protocol, and the daily volume should not be interpreted as continuously sustained traffic or converted into a requests-per-second benchmark.
+
+## Evidence
+
+This is a sanitised account of employer-owned production work based on my professional experience and resume. Source code, real documents, proprietary model artifacts, and internal evaluation materials are not included.
